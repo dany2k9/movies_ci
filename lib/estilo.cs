@@ -1,0 +1,390 @@
+/*---------------------------- RESET-------------------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*---------------------------- RESET-------------------------------------------*/
+body {
+	background-color: #FFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 24px;
+	color: #336699;
+}
+ 
+
+/* p{
+margin-top: 1%;   
+} */
+
+
+a {
+	font-size: 12px;
+	color: #336600;
+    text-decoration:none;
+}
+
+.title {
+    width: 100%;
+    margin:auto;
+	font-family: Impact, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	line-height: 18px;
+    background-color: #1a82f7; 
+	color: #003333;
+    margin-top: -.1%;
+    margin-bottom: .5%;
+}
+    
+    
+.title1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 10px;
+    background-color: #99CC00; 
+	color: #003333;
+	margin-bottom: .5%;}    
+
+.subtitle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: .1px;
+    color: #003300;
+    margin-top: 4%;
+	margin-bottom:4%;
+	}
+
+.hr{  
+margin-top: 5.4%;    
+}
+
+/* boton modificar imagen de modif.php*/
+
+
+#page_wrapper{
+width:1024px;
+margin:auto;
+padding-bottom:40px;
+position:relative;
+}
+
+#page_wrapper2{
+width:97%;
+height:97%;
+margin:auto;
+padding-bottom:40px;
+position:relative;
+}
+
+.tooltip{
+float:left; 
+width:200px;
+height:120px;
+margin-top:5px;
+margin-left:5px;
+margin-bottom:0px;
+position: absolute;
+}
+
+.tooltipimg{
+float:right;
+margin-top:-50px
+}
+
+.titleDetails {
+    width: 930px;
+    margin:auto;
+	font-family: Impact, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	line-height: 18px;
+    background-color: #1b9eea; 
+	color: #003333;
+}
+
+.salir {
+	float:right;
+	text-align: right;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 14px;
+	color: #003333;
+    margin-top: -2%;
+	margin-right: 1%;
+	}
+	
+/*mi lightbox*/	
+#plot, #length, #dir, #cast, #genre, #yea, #rank{
+background-color: #FFF;
+border: 0;
+color: #336699;
+font-size : 12px;
+width: 500px;
+margin-left: 8px;
+}
+
+/*div de los datos dentro del lightbox*/
+#datos{
+width:500px;
+overflow:hidden;
+margin-top: -265px;
+margin-left:179px;
+margin-right: 5px;
+float:left;
+}
+
+/*todos los datos antes de la info de la movie*/
+#divTit{
+	margin: 0;
+	padding: 0;
+	margin-right:-.5%;
+}
+
+/*div con los botones de eliminar y editar*/
+#divData, form{
+	margin: 0;
+	padding: 0;
+}
+
+#btnExit{
+margin-top:5px;
+}
+
+#ima{
+display:none;
+width: 120px;
+float:left;
+//background-color:blue;
+}
+
+#thumb_content{
+background-color:#CCC;
+display:none;
+position:fixed;
+height:720px;
+width:500px;
+top:-1%;
+left:15%;
+z-index:2000;
+OVERFLOW: auto;
+border:2px solid blue;
+}
+
+/*contenedor del lightbox*/
+#myDiv{
+margin: 0;
+padding: 0;
+background-color:#FFF;
+display:none;
+position:fixed;
+height:85%;
+width:759px;
+top: 4%;
+left: 9%;
+z-index:2000;
+OVERFLOW: hidden;
+border:2px solid blue;
+}
+
+#log{
+background-color:#CCC;
+display:none;
+height:170px;
+width:245px;
+z-index:2000;
+OVERFLOW: auto;
+border:2px solid blue;
+}
+
+#data{
+background-color:#000000;
+display:none;
+position:fixed;
+height:100%;
+width:100%;
+top:0;
+left:0;
+z-index:2000;
+margin: 0;
+}
+
+#info{
+margin-top: -100px;
+}
+
+#logo{
+width:200px;
+margin-left:406px;
+margin-top:-100px;
+}
+
+#name{
+	margin-left:58%;
+	margin-top:-37%;
+	margin-bottom:23%;
+	font-weight: bold;
+	color: #1b9eea;
+	font-family: Impact, Arial, Helvetica, sans-serif;
+	font-size: 15px;	
+}
+
+.index_body{
+		width:100%;
+		height: 200px;
+		margin-top: 100px;
+		background: -moz-linear-gradient(left, #2F2727, #1a82f7, #2F2727, #1a82f7, #2F2727);
+		background: -webkit-gradient(linear, left top, right top, from(#2F2727), color-stop(0.25, #1a82f7), color-stop(0.5, #2F2727), color-stop(0.75, #1a82f7), to(#2F2727));
+		background: -o-linear-gradient(left, #2F2727, #1a82f7, #2F2727, #1a82f7, #2F2727);
+	}
+	
+#logueo{
+		float:left;
+		border: 1px solid #ccc;
+		margin: 10px 0 0 350px;
+		width: 300px;
+		padding: 15px;
+		background-color: #1a82f7;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+	}
+	
+#logueo p{
+	font-family: Impact, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	line-height: 31px;
+	color: #FFF;
+}	
+	
+.titleIndex {
+    width:100%;
+    margin:auto;
+	font-family: Impact, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	line-height: 31px;
+    background-color: white; 
+	color: #1b9eea;
+    margin-top: -.1%;
+    margin-bottom: .5%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+}
+
+.titleIndex2 {
+    width:20%;
+    margin: 4px;	
+	font-family: Impact, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 12px;
+    background-color: blue; 
+	color: #FFF;
+	margin-left: 0;
+	padding: 2.5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}	
+
+.titleIndex2:hover {	
+	background-color: red; 
+	color: #ccc;
+}
+
+.titleIndex3 {
+    width:100%;
+    margin:auto;
+	font-family: Impact, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 12px;
+    background-color: white; 
+	color: #1b9eea;
+    margin-top: -.1%;
+    margin-bottom: -.1%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+}
+
+
+
+img{
+	margin-top: 4px;
+}
+
+#thumb{
+	width: 167px;
+	height: 250px;
+}
+
+.tab{
+	float:left;
+	width: 80px;
+	height: 12px;
+	padding: 1px;
+	margin: 2px 0 2px 1px;
+	border: 1px solid #000;
+	font-family: Impact, Arial, Helvetica, sans-serif;
+	display: block;
+	line-height: 12px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#datosExt{
+	display: none;
+	width:500px;
+	margin-top: -265px;
+	margin-left:179px;
+	margin-right: 5px;
+}
+
+#saveBtn{
+	display:none;
+}
