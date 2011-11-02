@@ -86,7 +86,7 @@ while($row=mysql_fetch_array($res))
 	<br />
 	<img src="<? echo "http://localhost/movies_ci/".$row["img_thumb"] ?>" id="thumb" title="Click para ver en tama&ntilde;o original" /><br />
 	<!-- imagen -->
-	
+
 	<!-- form para cambiar imagen-->
 	<div id="ima">
 	<form method="post" action="images/confirm_ima.php?tit=<? echo $_GET["id"] ?>" enctype="multipart/form-data">
