@@ -65,3 +65,5 @@ $(document).ready(function(){
 
 
 	alert("Estas utilizando "+ navigator.appName);
+	
+	//testing git
