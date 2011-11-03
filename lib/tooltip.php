@@ -19,7 +19,7 @@ while($row=mysql_fetch_array($res))
 <body>
 <div style="margin-right:12px">
 <!-- titulo -->
-	<h1 class="title"><? echo $_GET['idVar']?></h1>
+	<h1 class="title"><? echo substr($_GET['idVar'], 0, 25)?></h1>
 <br />
 <!-- imagen-->
 <img src="<? echo "http://localhost/movies_ci/".$row["img_thumb"]?>" name='ima' width="60px" height="80px">
@@ -29,7 +29,7 @@ while($row=mysql_fetch_array($res))
 <!-- los datos del juego -->
 
 
-	<div style="clear:right;margin-top:-90px;margin-left:75px;font-size:10px;line-height: 12px;"><p> <? echo utf8_encode(substr($row["plot"], 0, 155)) ?></p></div>
+	<div style="float:right;margin-top:-90px;margin-left:75px;font-size:10px;line-height: 12px;"><p> <? echo utf8_encode(substr($row["plot"], 0, 135)) ?></p></div>
 
 <div style="float:right;margin-top:-1px;margin-left:15px;"><img <?php echo $row["stars"]; ?> alt="" /></div>
 	<?php
