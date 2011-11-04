@@ -99,7 +99,7 @@ while($row=mysql_fetch_array($res))
 <!--<div id="thumb_content"><img src="--><?// echo "http://localhost/movies_ci/".$row["img"] ?><!--" title="Click para cerrar" /></div>-->
 
 <?
-list($w_orig, $h_orig) = getimagesize($row['img']);
+list($w_orig, $h_orig) = GetImageSize("../".$row['img']);
 $scale_ratio = $w_orig / $h_orig;
 $w = 450;
 $h = 470;
@@ -110,7 +110,7 @@ if(($w / $h) > $scale_ratio){
 	}
 ?>
 
-<div id="thumb_content" ><img src="<? echo "http://localhost/movies_ci/".$row['img'] ?>" title="Click para cerrar-Tama&ntilde;o: <? echo round($w) ?> x <? echo round($h) ?>-Tama&ntilde;o Real: <? echo $w_orig ?> x <? echo $h_orig ?>" width="<? echo $w;?>" height="<? echo $h;?>"/></div>
+<div id="thumb_content" ><img src="<? echo "../".$row['img'] ?>" title="Click para cerrar-Tama&ntilde;o: <? echo round($w) ?> x <? echo round($h) ?>-Tama&ntilde;o Real: <? echo $w_orig ?> x <? echo $h_orig ?>" width="<? echo $w;?>" height="<? echo $h;?>"/></div>
 <?
 }
 ?>

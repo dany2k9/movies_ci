@@ -5,7 +5,8 @@ class Movies_model extends CI_Model {
 	{
 		$q = $this->db->select('titulo, plot, img, img_thumb, id_movie')
 			->from($name)
-			->limit($limit, $offset);
+			->limit($limit, $offset)
+            ->order_by('titulo');
 			
 		$ret['rows'] = $q->get()->result();
 		

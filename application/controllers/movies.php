@@ -18,7 +18,9 @@ class Movies extends CI_Controller
 
 	function display($offset = 0)
 	{
-		$limit = 25;
+		//$limit = 25;
+        //print_r($_GET);
+        $limit = $this->input->get('limit');
 
 		$this->load->model('Movies_model');
 		

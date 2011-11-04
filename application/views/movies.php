@@ -27,8 +27,32 @@
             <div id='name'><?php echo $total ?></div>
             <div id='name2'><?php echo $username ?></div>
 		</div>
-		
+
+
 		<?php
+    echo "<div style='float: left;margin-top: 18px;margin-bottom: 20px;height: 12px'>";
+        $cinco = 25;
+        $veinte = 50;
+        $todas = $total;
+
+        if($total > 25)
+        {
+        ?>
+        <br />
+            <?php
+            echo anchor('movies/display?limit='.$todas, 'Todas', array('title' => 'Ver Todas'));
+            echo "&nbsp;&nbsp;&nbsp;";
+            echo anchor('movies/display?limit='.$cinco, '25', array('title' => 'Ver Veinticinco'));
+            echo "&nbsp;&nbsp;&nbsp;";
+        }if($total > 50)
+        {
+        echo anchor('movies/display?limit='.$veinte, '50', array('title' => 'Ver Cincuenta'));
+        }else
+        {
+        echo "";
+        }
+    echo "</div>";
+
 		echo "<div id='info2'>";       //-----------------------div info + botones funciones
 			/*echo "<span class='titleIndex' >Cantidad de Movies: ".$total."</span><br />";
 			echo "<span class='titleIndex' >Estas logueado como: ".$username." </span><br />";*/
@@ -49,11 +73,16 @@
             echo "<a href='add.php' class='titleIndex2' title='Agregar Manualmente'>Agregar..</a>";
 
 		echo "</div>";                 //-----------------------div info + botones funciones
+
+
 		?>
-</div>
+        </div>
+
+<br />
+<?php
 
 
-<?php foreach($datos as $dato): ?>
+foreach($datos as $dato): ?>
  <? $separar = array(" ", ":", "-", "_", "`", "(", "#", ")", ".", "&", ",", "!", "/", "[", "]"); ?>
 	<span id="separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 6))?>"><a href="#" onclick="return false" onmousedown="javascript:swapContent('<? echo trim($dato->titulo) ?>', '<? echo $username ?>');" onmouseover="tooltip('<? echo trim($dato->titulo)?>');pos(separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 6))?>, log)" id="linkBtn"><img src= <? echo base_url()."".$dato->img_thumb?> id='thumbIndex'/></a></span>
 	
