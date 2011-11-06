@@ -24,7 +24,7 @@ class Movies extends CI_Controller
 
 		$this->load->model('Movies_model');
 		
-		$name = $this->input->post('login');
+		//$name = $this->input->post('login');
 		
 		$is_logged_in = $this->session->userdata('is_logged_in');
 		$username = $this->session->userdata('username');
@@ -44,7 +44,9 @@ class Movies extends CI_Controller
 		$data['datos'] = $results['rows'];
 		$data['total'] = $results['num_rows'];
 		$data['username'] = $this->session->userdata('username');
-		
+
+        $discos = $this->Movies_model->get_discs($username);
+        $data['discos'] = $discos['discs'];
 		//$this->input->load_query($query_id);
 		
 		$this->load->library('pagination');
@@ -271,4 +273,18 @@ class Movies extends CI_Controller
 		echo $test;
 		echo "edit";
 	}
+
+//    public function get_discs()
+//    {
+//        $user = $this->session->userdata('username');
+//		$this->load->model('Movies_model');
+//
+//        $results = $this->Movies_model->get_discs($user);
+//
+//        $discos['disks'] = $results['discs'];
+//
+//        echo "discos";
+//        $this->load->view('movies', $discos);
+//
+//    }
 }  

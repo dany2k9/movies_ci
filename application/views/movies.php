@@ -76,15 +76,33 @@
 
 
 		?>
+
+        <?
+    if($total > 0)
+	{
+	echo "<div id='discs_div' style='float:left'>"; //div disco
+			echo "<b class='titleDiscs' id='titleDiscs'>Disco: </b>";
+
+			echo "<select name='discarea' id='discarea'>";
+			echo "<option value='SeleccioneD'>Seleccione un disco</option>";
+
+            foreach($discos as $disco):
+            echo "<option value='".$disco->disco."'>".$disco->disco."</option>";
+            endforeach;
+			echo "</select>";
+	echo "</div>"; //div disco
+	}else
+	{
+	echo "";
+	}
+    ?>
         </div>
 
 <br />
-<?php
-
-
-foreach($datos as $dato): ?>
+    
+<?php foreach($datos as $dato): ?>
  <? $separar = array(" ", ":", "-", "_", "`", "(", "#", ")", ".", "&", ",", "!", "/", "[", "]"); ?>
-	<span id="separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 6))?>"><a href="#" onclick="return false" onmousedown="javascript:swapContent('<? echo trim($dato->titulo) ?>', '<? echo $username ?>');" onmouseover="tooltip('<? echo trim($dato->titulo)?>');pos(separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 6))?>, log)" id="linkBtn"><img src= <? echo base_url()."".$dato->img_thumb?> id='thumbIndex'/></a></span>
+	<span id="separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 28))?>"><a href="#" onclick="return false" onmousedown="javascript:swapContent('<? echo trim($dato->titulo) ?>', '<? echo $username ?>');" onmouseover="tooltip('<? echo trim($dato->titulo)?>');pos(separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 28))?>, log)" id="linkBtn"><img src= <? echo base_url()."".$dato->img_thumb?> id='thumbIndex'/></a></span>
 	
 
 <?php endforeach; ?>

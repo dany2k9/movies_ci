@@ -115,4 +115,15 @@ class Movies_model extends CI_Model {
 		return $ret;	
 	}
 
+    public function get_discs($user)
+    {
+        //$sql = "SELECT DISTINCT disco FROM ".$user." WHERE disco IS NOT NULL and disco != 0 order by disco asc";
+        $q = $this->db->select('disco')
+			->from($user)
+            ->where('disco != 0')
+            ->order_by('disco');
+
+        $result['discs'] = $q->distinct()->get()->result();
+		return $result;
+    }
 }
