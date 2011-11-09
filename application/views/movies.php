@@ -15,7 +15,9 @@
 	</script>
 </head>
 <body>
-<div id="data"></div>
+<div id="pos" style="padding: 35px"></div><div id="span1" style="background-color: #000;color: #FFFFFF;height: 100px;width: 180px">hi!!!</div>
+<div id="data" style="background-color: #CCC;color: #FFFFFF;height: 100px;width: 180px;display: block;margin-left: 200px"></div>
+<div id="data2"></div>
 <div id="page_wrapper">
 
 <div class='index_body'>
@@ -83,7 +85,7 @@
 	echo "<div id='discs_div' style='float:left'>"; //div disco
 			echo "<b class='titleDiscs' id='titleDiscs'>Disco: </b>";
 
-			echo "<select name='discarea' id='discarea'>";
+			echo "<select name='discarea' id='discarea' onchange=''>";
 			echo "<option value='SeleccioneD'>Seleccione un disco</option>";
 
             foreach($discos as $disco):
@@ -102,21 +104,11 @@
     
 <?php foreach($datos as $dato): ?>
  <? $separar = array(" ", ":", "-", "_", "`", "(", "#", ")", ".", "&", ",", "!", "/", "[", "]"); ?>
-	<span id="separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 28))?>"><a href="#" onclick="return false" onmousedown="javascript:swapContent('<? echo trim($dato->titulo) ?>', '<? echo $username ?>');" onmouseover="tooltip('<? echo trim($dato->titulo)?>');pos(separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 28))?>, log)" id="linkBtn"><img src= <? echo base_url()."".$dato->img_thumb?> id='thumbIndex'/></a></span>
+	<span id="separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 28))?>"><a href="#" onclick="return false" onmousedown="javascript:swapContent('<? echo trim($dato->titulo) ?>', '<? echo $username ?>');" onmouseover="tooltip('<? echo trim($dato->titulo)?>');pos(separador<? echo str_replace($separar, '', substr($dato->titulo, 0 , 28))?>, log)" id="linkBtn" ><img src= <? echo base_url()."".$dato->img_thumb?> id='thumbIndex'/></a></span>
 	
 
 <?php endforeach; ?>
 
-
-	<!--<?php foreach($datos as $dato): ?>
-	<div>
-	<?php echo $dato->titulo; ?>
-	</div>
-	<?php echo $dato->plot; ?>
-	<br />
-	<?php echo "<img src='".base_url()."/".$dato->img."' id='thumbIndex'/>" ?>
-	<?php endforeach; ?>
-	<br />-->
 	<!--<?php echo anchor('movies/add', 'Agregar') ?>-->
 	
 	<?php if (strlen($pagination)): ?>
@@ -126,6 +118,7 @@
 	<?php endif; ?>
 </div>
 <div id="myDiv">My default content</div>
-<div id="log"></div>	
+<div id="log"></div>
+<div id="discs1" title="Click para salir"></div>
 </body>
 </html>

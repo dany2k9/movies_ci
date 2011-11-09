@@ -2,8 +2,8 @@
 require_once("class.php");
 //print_r($_POST);
 $titl = $_GET['idVar'];          //variable que llega por Ajax para el lightbox
-$user = $_POST['user'];
-$sql = "SELECT * FROM dany2k9 WHERE titulo = '$titl' ";
+$user = $_GET['user'];
+$sql = "SELECT * FROM ".$user." WHERE titulo = '$titl' ";
 $res = mysql_query($sql, Conectar::con());
 while($row=mysql_fetch_array($res))
 {

@@ -106,14 +106,14 @@ class Movies_model extends CI_Model {
       )); 
 	}
 	
-	function details($name, $id)
+	/*function details($name, $id)
 	{
 		$q = $this->db->get_where($name, array('id_movie' => $id));
-			
+
 		$ret['rows'] = $q->result();
-		
-		return $ret;	
-	}
+
+		return $ret;
+	}*/
 
     public function get_discs($user)
     {
@@ -125,5 +125,17 @@ class Movies_model extends CI_Model {
 
         $result['discs'] = $q->distinct()->get()->result();
 		return $result;
+    }
+
+    //$sql2 = "SELECT * FROM ".$_SESSION["session_video_user_25"]." WHERE disco IS NOT NULL and disco != 0 and disco = '".$_POST['variable2']."' order by titulo asc";
+
+    public function get_info_from_disc($user, $disc){
+        $q = $this->db->select('titulo, plot, img, img_thumb, id_movie')
+             ->from($user)
+             ->where('disco', $disc)
+             ->order_by('titulo');
+
+        $result['info'] = $q->get()->result();
+        return $result;
     }
 }

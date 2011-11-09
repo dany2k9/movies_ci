@@ -23,9 +23,7 @@ class Movies extends CI_Controller
         $limit = $this->input->get('limit');
 
 		$this->load->model('Movies_model');
-		
-		//$name = $this->input->post('login');
-		
+
 		$is_logged_in = $this->session->userdata('is_logged_in');
 		$username = $this->session->userdata('username');
 		if(!isset($is_logged_in) || $is_logged_in != TRUE)
@@ -47,27 +45,20 @@ class Movies extends CI_Controller
 
         $discos = $this->Movies_model->get_discs($username);
         $data['discos'] = $discos['discs'];
-		//$this->input->load_query($query_id);
+
+        $disco = $this->input->post('discarea');
+        $info_for_disco = $this->Movies_model->get_info_from_disc($username, $disco);
+        $data['data_disc'] = $info_for_disco['info'];
 		
 		$this->load->library('pagination');
-		/* $this->load->library('table');
-		
-		$this->table->set_heading('Id', 'The title', 'Author', 'The comment'); */
-		
-		//$data['query_id'] = $query_id;
 		
 		$config['base_url'] = site_url('movies/display');
 		$config['total_rows'] = $this->db->get($username)->num_rows();
 		$config['per_page'] = $limit;
 		$config['uri_segment'] = 3;
-		/* $config['full_tag_open'] = '<div id ="pagination">';
-		$config['full_tag_close'] = '</div>'; */
 		
 		$this->pagination->initialize($config);
-		
-		/* $data['records'] = $this->db->get($username, $config['per_page'], $this->uri->segment(3));
-		 */
-		//$this->load->view('site_view', $data);
+
 		$data['pagination'] = $this->pagination->create_links();
 		$this->load->view('movies', $data);
 
@@ -246,25 +237,25 @@ class Movies extends CI_Controller
 		redirect('movies/index');
 	}
 	
-	function details()
-	{
-		//echo "details";
-		//print_r($_POST);
-		$titulo_movie = $this->input->post('titulo_movie'); 
-		$tit = $this->input->post('titulo');
-		$id = $this->input->post('id_movie');
-		//echo $titulo_movie;
-		
-		$username = $this->session->userdata('username');
-		
-		$this->load->model('Movies_model');
-		
-		$results = $this->Movies_model->details($username,$id);
-		
-		$data['datos'] = $results['rows'];
-		
-		//$this->load->view('detalle', $data);
-	}
+//	function details()
+//	{
+//		//echo "details";
+//		//print_r($_POST);
+//		$titulo_movie = $this->input->post('titulo_movie');
+//		$tit = $this->input->post('titulo');
+//		$id = $this->input->post('id_movie');
+//		//echo $titulo_movie;
+//
+//		$username = $this->session->userdata('username');
+//
+//		$this->load->model('Movies_model');
+//
+//		$results = $this->Movies_model->details($username,$id);
+//
+//		$data['datos'] = $results['rows'];
+//
+//		//$this->load->view('detalle', $data);
+//	}
 	
 	function edit()
 	{
@@ -274,17 +265,4 @@ class Movies extends CI_Controller
 		echo "edit";
 	}
 
-//    public function get_discs()
-//    {
-//        $user = $this->session->userdata('username');
-//		$this->load->model('Movies_model');
-//
-//        $results = $this->Movies_model->get_discs($user);
-//
-//        $discos['disks'] = $results['discs'];
-//
-//        echo "discos";
-//        $this->load->view('movies', $discos);
-//
-//    }
 }  
