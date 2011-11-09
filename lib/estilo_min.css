@@ -71,7 +71,7 @@ img{margin-top:4px;}
 .fondo{background:#1b9eea;}
 .pdf{width:20%;margin:-77px 0 0 67.5%;font-family:Impact, Arial, Helvetica, sans-serif;font-size:14px;line-height:12px;background-color:#000;color:#1b9eea;padding:2px;}
 .pdf:hover{background-color:red;color:#ccc;}
-.titleCateg{width:10%;height:12px;margin:5px 0 0 300px;font-family:Impact, Arial, Helvetica, sans-serif;font-size:14px;line-height:12px;background-color:#FFF;color:#1b9eea;padding:2px}
+.titleCateg{width:10%;height:12px;margin:3px 0 0 300px;font-family:Impact, Arial, Helvetica, sans-serif;font-size:14px;line-height:12px;background-color:#FFF;color:#1b9eea;padding:0 2px 2px 2px}
 .titleDiscs{width:10%;height:8px;margin:0 0 0 205px;font-family:Impact, Arial, Helvetica, sans-serif;font-size:14px;line-height:10px;background-color:#FFF;color:#1b9eea;}
 #categ{margin:5px;border:3px solid blue;padding:0;background-color:#FFF;display:none;position:fixed;height:98%;width:98%;top:31px;z-index:2000;OVERFLOW:auto;}
 #discs1{margin:5px;border:3px solid blue;padding:0;background-color:#FFF;display:none;position:fixed;height:98%;width:98%;top:31px;z-index:2000;OVERFLOW:auto;}

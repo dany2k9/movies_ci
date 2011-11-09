@@ -46,9 +46,12 @@ class Movies extends CI_Controller
         $discos = $this->Movies_model->get_discs($username);
         $data['discos'] = $discos['discs'];
 
-        $disco = $this->input->post('discarea');
+        $generos = $this->Movies_model->get_genres($username);
+        $data['genres'] = $generos['genres'];    
+
+       /* $disco = $this->input->post('discarea');
         $info_for_disco = $this->Movies_model->get_info_from_disc($username, $disco);
-        $data['data_disc'] = $info_for_disco['info'];
+        $data['data_disc'] = $info_for_disco['info'];*/
 		
 		$this->load->library('pagination');
 		
@@ -65,19 +68,66 @@ class Movies extends CI_Controller
 		}
 		
 	}
+
+    function results(){
+        $elements = array();
+        $username = $this->session->userdata('username');
+        
+        include_once APPPATH.'/libraries/simple_html_dom.php';
+		$nom = $this->input->post('nom');
+
+        $html = file_get_html('http://www.filmaffinity.com/es/advsearch.php?stext='.$nom.'&stype[]=title&genre=&country=&fromyear=&toyear=');
+
+		foreach($html->find("table tr td table tr td table tr td table tr td table tr td b a") as $element)
+		{
+			$links['link'] = $element->href;
+			$links['text'] = $element->plaintext;
+			$elements[] = $links;
+		}
+		$tot2 = sizeof($elements);
+
+
+		$query_array = array(
+			'movies' => $elements,
+			'category' => $tot2,
+			'user_id' => $username
+		);
+
+        $this->load->view('results1', $query_array);
+        //redirect('movies/results1',$query_array);
+    }
+
+    function details(){
+
+        $this->load->view('results1');
+    }
+
+    function add_movie()
+	{
+		//print_r($_POST);
+		//print_r($_GET);
+		$link['mid'] = $this->input->get('mid');
+		$link['user'] =  $this->session->userdata('username');
+		//$link['id'] = $this->input->post('id');
+		$this->load->view('movie_data', $link);
+	}
 	
 	function add()
 	{
-		$elements = array();
+//		$elements = array();
+
+        $username = $this->session->userdata('username');
+		//$this->load->model('Movies_model');
+        //$results = $this->Movies_model->display($username, $limit, $offset);
+
+		//print_r($_POST);
 		
-		print_r($_POST);
+		/*include_once APPPATH.'/libraries/simple_html_dom.php';
+		$nom = $this->input->post('nom');*/
 		
-		include_once APPPATH.'/libraries/simple_html_dom.php';
-		$nom = $this->input->post('nom');
+		//$user = $this->input->post('id');
 		
-		$user = $this->input->post('id');
-		
-		$html = file_get_html('http://www.filmaffinity.com/es/advsearch.php?stext='.$nom.'&stype[]=title&genre=&country=&fromyear=&toyear=');
+		/*$html = file_get_html('http://www.filmaffinity.com/es/advsearch.php?stext='.$nom.'&stype[]=title&genre=&country=&fromyear=&toyear=');
 		
 		foreach($html->find("table tr td table tr td table tr td table tr td table tr td b a") as $element) 
 		{
@@ -85,26 +135,17 @@ class Movies extends CI_Controller
 			$links['text'] = $element->plaintext; 	
 			$elements[] = $links;		
 		}
-		$tot2 = sizeof($elements);
-		
-		//echo $tot2;
-		
-		
-			/* for($i = 0; $i < $tot2; $i++)
-			{
-			
-			echo "<a href='http://localhost/movies/movie_data.php?mid=".$elements[$i]['link'] . "&id=''>".$elements[$i]['text']."</a><br>";
-			
-			} */
+		$tot2 = sizeof($elements);*/
+
 			
 		$query_array = array(
-			'movies' => $elements,
-			'category' => $tot2,
-			'user_id' => $user
+			/*'movies' => $elements,
+			'category' => $tot2,*/
+			'user_id' => $username
 		);
+		$query['user_id'] = $username;
 		
-		
-		$this->load->view('add', $query_array);
+		$this->load->view('add', $query);
 		
 	}
 	
@@ -192,16 +233,7 @@ class Movies extends CI_Controller
 		
 		
 	}
-	
-	function add_movie()
-	{
-		//print_r($_POST);
-		//print_r($_GET);
-		$link['mid'] = $this->input->get('mid');
-		$link['user'] =  $this->session->userdata('username');
-		//$link['id'] = $this->input->post('id');
-		$this->load->view('movie_data', $link);
-	}
+
 	
 	function added()
 	{

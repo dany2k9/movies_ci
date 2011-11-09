@@ -120,7 +120,7 @@ if(($w / $h) > $scale_ratio){
 <script type="text/javascript">
 		$(document).ready(function(){
 			$('#data').css({"opacity": "0.85"});
-			$("#data").delay(200).fadeIn("slow");
+			$("#data").delay(200).fadeIn("fast");
 
 		$("#exit").click(function(){
 		$("#data").delay(500).fadeOut("slow");

@@ -15,8 +15,8 @@
 	</script>
 </head>
 <body>
-<div id="pos" style="padding: 35px"></div><div id="span1" style="background-color: #000;color: #FFFFFF;height: 100px;width: 180px">hi!!!</div>
-<div id="data" style="background-color: #CCC;color: #FFFFFF;height: 100px;width: 180px;display: block;margin-left: 200px"></div>
+<!--<div id="pos" style="padding: 35px"></div><div id="span1" style="background-color: #000;color: #FFFFFF;height: 100px;width: 180px">hi!!!</div>-->
+<div id="data"></div>
 <div id="data2"></div>
 <div id="page_wrapper">
 
@@ -76,16 +76,33 @@
 
 		echo "</div>";                 //-----------------------div info + botones funciones
 
-
 		?>
+         <?
+    if($total > 0)
+	{
+	echo "<div id='categories_div' style='float:left'>"; //div disco
+			echo "<b class='titleCateg' id='titleCateg'>Categorias: </b>";
 
+			?><select name='categories' id='categories' onchange='javascript:view_genres(this, "<? echo $username ?>" )'><?
+			echo "<option value='SeleccioneC'>Seleccione una cetegoria</option>";
+
+            foreach($genres as $genre):
+            echo "<option value='".$genre->generos."'>".$genre->generos."</option>";
+            endforeach;
+			echo "</select>";
+	echo "</div>"; //div disco
+	}else
+	{
+	echo "";
+	}
+    ?>
         <?
     if($total > 0)
 	{
 	echo "<div id='discs_div' style='float:left'>"; //div disco
 			echo "<b class='titleDiscs' id='titleDiscs'>Disco: </b>";
 
-			echo "<select name='discarea' id='discarea' onchange=''>";
+			?><select name='discarea' id='discarea' onchange='javascript:viewDiscs(this, "<? echo $username ?>" )'><?
 			echo "<option value='SeleccioneD'>Seleccione un disco</option>";
 
             foreach($discos as $disco):
@@ -119,6 +136,7 @@
 </div>
 <div id="myDiv">My default content</div>
 <div id="log"></div>
+<div id="categ" title="Click para salir"></div>
 <div id="discs1" title="Click para salir"></div>
 </body>
 </html>

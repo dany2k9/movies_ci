@@ -138,4 +138,15 @@ class Movies_model extends CI_Model {
         $result['info'] = $q->get()->result();
         return $result;
     }
+
+    public function get_genres($user){
+        //$sql="select DISTINCT generos from genres".$user." as gen order by generos asc";
+        //$res=mysql_query($sql, Conectar::con());
+        $q = $this->db->select('generos')
+             ->from('genres'.$user)
+             ->order_by('generos');
+
+        $result['genres'] = $q->distinct()->get()->result();
+        return $result;
+    }
 }
